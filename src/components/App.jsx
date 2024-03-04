@@ -4,6 +4,7 @@ import TransactionHistory from './TransactionHistory/TransactionHistory';
 import transactions from '../transactions.json';
 import userData from '../userData.json';
 import friends from '../friends.json';
+import Form from './Form/Form';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       />
       <FriendList friends={friends} />
       <TransactionHistory items={transactions} />
+      <Form />
     </>
   );
 };
