@@ -1,0 +1,20 @@
+.tableCell {
+  border: black solid 1px;
+  padding: 2px 70px;
+  text-align: center;
+  text-transform: capitalize;
+}
+.tableWrapper {
+  border-collapse: collapse;
+}
+.tableHead {
+  border: black solid 1px;
+  padding: 2px 70px;
+  text-align: center;
+  text-transform: capitalize;
+  background-color: grey;
+  color: white;
+}
+.tableLine:nth-child(2n) {
+  background-color: gainsboro;
+}

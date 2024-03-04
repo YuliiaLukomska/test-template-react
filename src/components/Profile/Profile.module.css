@@ -1,0 +1,55 @@
+.wrapper {
+  max-width: 300px;
+  border: black solid 2px;
+  border-radius: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+.userInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.userPhoto {
+  width: 100px;
+  border-radius: 50px;
+  background-color: black;
+}
+.userName {
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+}
+.userInfo {
+  color: grey;
+  font-size: 18px;
+}
+.activityInfoWrapper {
+  display: flex;
+  border-top: grey solid 1.5px;
+}
+.activitySection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+
+  background-color: gainsboro;
+  font-size: 18px;
+  width: 100px;
+}
+.activitySection:not(:last-child) {
+  border-right: grey solid 1.5px;
+}
+.activitySection:first-child {
+  border-bottom-left-radius: 10px;
+}
+.activitySection:last-child {
+  border-bottom-right-radius: 10px;
+}
+.activityNumbers {
+  font-weight: 500;
+}

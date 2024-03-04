@@ -1,0 +1,19 @@
+.friendContainer {
+  border: black solid 2px;
+  border-radius: 10px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.friendName {
+  font-weight: 500;
+  font-size: 20px;
+}
+.isOnline {
+  color: green;
+}
+.Offline {
+  color: red;
+}
