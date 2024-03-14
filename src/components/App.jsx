@@ -6,17 +6,44 @@ import userData from '../userData.json';
 import friends from '../friends.json';
 import Form from './Form/Form';
 import FeedbackForm from './Form/FeedbackForm';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ClickCounter from './ClickCounter';
 import Modal from './Form/Modal';
+// import axios from 'axios';
+
+import { SearchForm } from './Form/SearchForm';
+import ArticleList from './ArticleList';
+import fetchArticlesWithTopic from './Form/Services/API-Request';
 
 const App = () => {
+  const btn = useRef();
+  console.log(btn.current);
+  useEffect(() => {
+    console.log(btn.current);
+  }, []);
   const [clicks, setClicks] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [values, setValues] = useState({
     x: 0,
     y: 0,
   });
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleSearch = async topic => {
+    try {
+      setArticles([]);
+      setError(false);
+      setLoading(true);
+      const data = await fetchArticlesWithTopic(topic);
+      setArticles(data);
+    } catch (error) {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleClicks = () => {
     setClicks(clicks + 1);
@@ -44,6 +71,15 @@ const App = () => {
 
   return (
     <>
+      <button ref={btn}>Button with ref</button>
+      <div>
+        <SearchForm onSearch={handleSearch} />
+        {loading && <p>Loading data, please wait...</p>}
+        {error && (
+          <p>Whoops, something went wrong! Please try reloading this page!</p>
+        )}
+        {articles.length > 0 && <ArticleList items={articles} />}
+      </div>
       <button onClick={handleToggle}>{isOpen ? 'Close' : 'Open'}</button>
       {isOpen && <Modal />}
       <p>
